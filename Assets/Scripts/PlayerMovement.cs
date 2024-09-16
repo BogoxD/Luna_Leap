@@ -25,14 +25,14 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
-            rb.AddForce(Vector3.left * moveSpeed, ForceMode2D.Impulse);
+            rb.AddForce(Vector3.left * moveSpeed, ForceMode2D.Force);
         }
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
-            rb.AddForce(Vector3.right * moveSpeed, ForceMode2D.Impulse);
+            rb.AddForce(Vector3.right * moveSpeed, ForceMode2D.Force);
         }
     }
 
@@ -43,4 +43,16 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("grounded");
 
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+
+        if (other.CompareTag("Pickup"))
+        {
+            Destroy(other.gameObject);
+        }
+        
+    }
+
+
 }
