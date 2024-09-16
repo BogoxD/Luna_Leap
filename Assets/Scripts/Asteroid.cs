@@ -6,6 +6,7 @@ public class Asteroid : MonoBehaviour
 {
     public float force;
     public float ImpactForce;
+
     private Rigidbody2D rb2d;
     private Vector2 forceDirection;
 
@@ -13,7 +14,9 @@ public class Asteroid : MonoBehaviour
 
     private void Start()
     {
+        //get components
         rb2d = GetComponent<Rigidbody2D>();
+
     }
     void FixedUpdate()
     {
