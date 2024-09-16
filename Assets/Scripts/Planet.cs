@@ -13,9 +13,4 @@ public class Planet : MonoBehaviour
         springJoint2D.anchor = Vector2.zero;
         springJoint2D.connectedAnchor = transform.position;
     }
-
-    void Update()
-    {
-        
-    }
 }
