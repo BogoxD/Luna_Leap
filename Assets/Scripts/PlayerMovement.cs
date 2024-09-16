@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Movement")]
     public float jumpSpeed = 10;
     public float moveSpeed = 2;
+    public float maxSpeed = 5f;
+
+    [Header("Rotation")]
+    public float playerMaxRotation = 20f;
+
+
     private Rigidbody2D rb2d;
     public bool isGrounded;
 
@@ -20,19 +27,15 @@ public class PlayerMovement : MonoBehaviour
     {
         OnMove();
         OnJump();
-        ClampRotation();
     }
     private void OnMove()
     {
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            rb2d.AddForce(-transform.right * moveSpeed, ForceMode2D.Force);
-        }
+        float horizontal = Input.GetAxis("Horizontal");
 
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            rb2d.AddForce(transform.right * moveSpeed, ForceMode2D.Force);
-        }
+        rb2d.AddForce(horizontal * moveSpeed * transform.right, ForceMode2D.Force);
+
+        //sets a max speed so the player doesn't accelerate to infinity
+        LimitVelocity();
     }
     private void OnJump()
     {
@@ -42,14 +45,23 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = false;
         }
     }
+    private void ClampRotation()
+    {
+        Vector3 playerEulerAngles = transform.localEulerAngles;
+
+        playerEulerAngles.z = (playerEulerAngles.z > 180) ? playerEulerAngles.z - 360 : playerEulerAngles.z;
+        playerEulerAngles.z = Mathf.Clamp(playerEulerAngles.z, -playerMaxRotation, playerMaxRotation);
+
+        transform.localRotation = Quaternion.Euler(playerEulerAngles);
+    }
+    private void LimitVelocity()
+    {
+        if (rb2d.velocity.magnitude > maxSpeed)
+            rb2d.velocity = Vector2.ClampMagnitude(rb2d.velocity, maxSpeed);
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Planet"))
             isGrounded = true;
-    }
-    private void ClampRotation()
-    {
-        float zClamped = Mathf.Clamp(transform.eulerAngles.z, -20f, 20f);
-        transform.eulerAngles = new Vector3(0, 0, zClamped);
     }
 }
