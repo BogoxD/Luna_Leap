@@ -122,6 +122,75 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &46920867
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 530942130736405116, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
+      propertyPath: m_Distance
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 530942130736405116, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 530942130736405116, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: -6.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 576466838774510459, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
+      propertyPath: m_Name
+      value: Planet (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813365935088369957, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813365935088369957, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813365935088369957, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813365935088369957, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813365935088369957, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813365935088369957, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813365935088369957, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813365935088369957, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813365935088369957, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813365935088369957, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
 --- !u!1 &362622942
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,6 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 5
+  ImpactForce: 3
 --- !u!50 &362622944
 Rigidbody2D:
   serializedVersion: 4
@@ -327,6 +397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 5
+  ImpactForce: 3
 --- !u!50 &399944826
 Rigidbody2D:
   serializedVersion: 4
@@ -718,6 +789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 5
+  ImpactForce: 3
 --- !u!50 &1144193853
 Rigidbody2D:
   serializedVersion: 4
@@ -890,6 +962,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 5
+  ImpactForce: 3
 --- !u!50 &1452609058
 Rigidbody2D:
   serializedVersion: 4
@@ -1062,6 +1135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 5
+  ImpactForce: 3
 --- !u!50 &1654806360
 Rigidbody2D:
   serializedVersion: 4
@@ -1223,7 +1297,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 576466838774510459, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
       propertyPath: m_Name
-      value: Planet_Pref (1)
+      value: Planet
       objectReference: {fileID: 0}
     - target: {fileID: 3813365935088369957, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
       propertyPath: m_LocalScale.x
@@ -1292,7 +1366,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 576466838774510459, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
       propertyPath: m_Name
-      value: Planet_Pref
+      value: Planet
       objectReference: {fileID: 0}
     - target: {fileID: 3813365935088369957, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1387,6 +1461,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4145008157482788781, guid: 5196e23368be29c4aaff836535519ef2, type: 3}
+      propertyPath: ImpactForce
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6166285023461244346, guid: 5196e23368be29c4aaff836535519ef2, type: 3}
       propertyPath: m_Name
       value: Asteroid
@@ -1403,6 +1481,7 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 2078038307669063426}
+  - {fileID: 46920867}
   - {fileID: 7833710775803846823}
   - {fileID: 399944829}
   - {fileID: 362622947}

@@ -5,8 +5,11 @@ using UnityEngine;
 public class Asteroid : MonoBehaviour
 {
     public float force;
+    public float ImpactForce;
     private Rigidbody2D rb2d;
     private Vector2 forceDirection;
+
+    private bool isFalling = true;
 
     private void Start()
     {
@@ -14,21 +17,37 @@ public class Asteroid : MonoBehaviour
     }
     void FixedUpdate()
     {
-        Move();
+        if (isFalling)
+            Move();
+        //else 
+           //bounce around
     }
     private void Move()
     {
+        //add random direction downwards for now
         forceDirection = -Vector2.one * Random.Range(0.1f, 1f);
+
+        //apply direction and force to rigidbody
         rb2d.AddForce((forceDirection) * force, ForceMode2D.Force);
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Planet"))
+        //when asteroid collides with planet object
+        if (collision.gameObject.CompareTag("Planet"))
         {
-            if(collision.gameObject.TryGetComponent(out Rigidbody2D rigidbody))
+            //try to get the rigidbody of the planet
+            if (collision.gameObject.TryGetComponent(out Rigidbody2D rigidbody))
             {
                 //add force to planet when hitting it
-                rigidbody.AddForce(forceDirection * 2f, ForceMode2D.Impulse);
+                rigidbody.AddForce(forceDirection * ImpactForce, ForceMode2D.Impulse);
+
+                //make asteroid fall downwards and bounce around
+                isFalling = false;
+                rb2d.gravityScale = 1f;
+
+                int chance = Random.Range(0, 3);
+                if (chance == 1)
+                    gameObject.SetActive(false);
             }
         }
     }
