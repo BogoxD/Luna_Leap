@@ -45,6 +45,7 @@ public class Asteroid : MonoBehaviour
                 isFalling = false;
                 rb2d.gravityScale = 1f;
 
+                //one in three chance for object to get disabled
                 int chance = Random.Range(0, 3);
                 if (chance == 1)
                     gameObject.SetActive(false);
