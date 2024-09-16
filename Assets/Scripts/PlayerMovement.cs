@@ -6,44 +6,43 @@ public class PlayerMovement : MonoBehaviour
 {
     public float jumpSpeed = 10;
     public float moveSpeed = 2;
-    public Rigidbody2D rb;
-    private bool isGrounded;
+    private Rigidbody2D rb2d;
+    public bool isGrounded;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb2d = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        OnMove();
+        ClampRotation();
+    }
+    private void OnMove()
+    {
         if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded == true)
         {
-            rb.AddForce(Vector3.up * jumpSpeed, ForceMode2D.Impulse);
+            rb2d.AddForce(transform.up * jumpSpeed, ForceMode2D.Impulse);
             isGrounded = false;
         }
 
-
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            rb.AddForce(-transform.right * moveSpeed, ForceMode2D.Impulse);
+            rb2d.AddForce(-transform.right * moveSpeed, ForceMode2D.Impulse);
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            rb.AddForce(transform.right * moveSpeed, ForceMode2D.Impulse);
+            rb2d.AddForce(transform.right * moveSpeed, ForceMode2D.Impulse);
         }
-
-        ClampRotation();
     }
-
-    void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Planet"))
             isGrounded = true;
-            Debug.Log("grounded");
-
     }
     private void ClampRotation()
     {
