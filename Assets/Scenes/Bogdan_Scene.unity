@@ -135,6 +135,10 @@ PrefabInstance:
       value: 0.005
       objectReference: {fileID: 0}
     - target: {fileID: 530942130736405116, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
+      propertyPath: m_DampingRatio
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 530942130736405116, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: -0.55
       objectReference: {fileID: 0}
@@ -202,6 +206,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5451211682722915804, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451211682722915804, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6953787229479541130, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
       propertyPath: m_Radius
       value: 0.19476277
@@ -229,7 +241,7 @@ GameObject:
   m_Component:
   - component: {fileID: 81492808}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Asteroids
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1407,6 +1419,10 @@ PrefabInstance:
       value: 0.005
       objectReference: {fileID: 0}
     - target: {fileID: 530942130736405116, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
+      propertyPath: m_DampingRatio
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 530942130736405116, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 3.97
       objectReference: {fileID: 0}
@@ -1474,6 +1490,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5451211682722915804, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451211682722915804, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6953787229479541130, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
       propertyPath: m_Radius
       value: 0.18999322
@@ -1495,45 +1519,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 709007367}
     m_Modifications:
-    - target: {fileID: 530942130736405116, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
-      propertyPath: m_Distance
-      value: 0.005
-      objectReference: {fileID: 0}
     - target: {fileID: 576466838774510459, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
       propertyPath: m_Name
       value: Planet
-      objectReference: {fileID: 0}
-    - target: {fileID: 3395964881269633829, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
-      propertyPath: m_FlipX
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3395964881269633829, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
-      propertyPath: m_Size.x
-      value: 0.36
-      objectReference: {fileID: 0}
-    - target: {fileID: 3395964881269633829, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
-      propertyPath: m_Size.y
-      value: 0.36
-      objectReference: {fileID: 0}
-    - target: {fileID: 3395964881269633829, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 1520432223, guid: 0ab534d8256e0d749a82772c22bdc50a, type: 3}
-    - target: {fileID: 3395964881269633829, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3813365935088369957, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3813365935088369957, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3813365935088369957, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3813365935088369957, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1574,14 +1562,6 @@ PrefabInstance:
     - target: {fileID: 3813365935088369957, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6953787229479541130, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
-      propertyPath: m_Radius
-      value: 0.18258922
-      objectReference: {fileID: 0}
-    - target: {fileID: 6953787229479541130, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.0028595687
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
