@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3194745827794201850}
   - component: {fileID: 4947234520025824686}
   m_Layer: 0
-  m_Name: space_carrot_turning_animation_0 (3)
+  m_Name: SpaceCarrot
   m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,7 +97,7 @@ Animator:
   m_GameObject: {fileID: 2307396754408238183}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f04f76cec63b4e24cb271a9035ffccb8, type: 2}
+  m_Controller: {fileID: 9100000, guid: e2ead16b8fe270f4eabb21156ab46b78, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
         LimitVelocity();
 
         //clamp rotation
-        ClampRotation();
+        //ClampRotation();
     }
     private void OnJump()
     {

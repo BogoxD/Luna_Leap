@@ -17,9 +17,8 @@ public class Pickup : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other)
-
     {
         if (other.CompareTag("pickup"))
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
     }
 }
