@@ -27,13 +27,15 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            rb.AddForce(Vector3.left * moveSpeed, ForceMode2D.Impulse);
+            rb.AddForce(-transform.right * moveSpeed, ForceMode2D.Impulse);
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            rb.AddForce(Vector3.right * moveSpeed, ForceMode2D.Impulse);
+            rb.AddForce(transform.right * moveSpeed, ForceMode2D.Impulse);
         }
+
+        ClampRotation();
     }
 
     void OnCollisionEnter(Collision collision)
@@ -42,5 +44,10 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = true;
             Debug.Log("grounded");
 
+    }
+    private void ClampRotation()
+    {
+        float zClamped = Mathf.Clamp(transform.eulerAngles.z, -20f, 20f);
+        transform.eulerAngles = new Vector3(0, 0, zClamped);
     }
 }
