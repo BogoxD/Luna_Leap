@@ -19,24 +19,27 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         OnMove();
+        OnJump();
         ClampRotation();
     }
     private void OnMove()
+    {
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            rb2d.AddForce(-transform.right * moveSpeed, ForceMode2D.Force);
+        }
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            rb2d.AddForce(transform.right * moveSpeed, ForceMode2D.Force);
+        }
+    }
+    private void OnJump()
     {
         if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded == true)
         {
             rb2d.AddForce(transform.up * jumpSpeed, ForceMode2D.Impulse);
             isGrounded = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            rb2d.AddForce(-transform.right * moveSpeed, ForceMode2D.Impulse);
-        }
-
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            rb2d.AddForce(transform.right * moveSpeed, ForceMode2D.Impulse);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
