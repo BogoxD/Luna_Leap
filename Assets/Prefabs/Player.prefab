@@ -131,9 +131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57865325ebe32d14982a420ef5869c35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpSpeed: 5
-  moveSpeed: 2
-  maxSpeed: 10
+  jumpForce: 7
+  moveForce: 2
+  maxSpeed: 5
   playerMaxRotation: 20
   isGrounded: 0
 --- !u!50 &7802899200630965920
@@ -162,7 +162,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!58 &8863390773424006188
 CircleCollider2D:
   m_ObjectHideFlags: 0
