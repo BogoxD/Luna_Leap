@@ -9,7 +9,6 @@ public class Asteroid : MonoBehaviour
 
     private Rigidbody2D rb2d;
     private Vector2 forceDirection;
-    private SpringJoint2D springJoint2D;
 
     private bool isFalling = true;
 
@@ -17,10 +16,7 @@ public class Asteroid : MonoBehaviour
     {
         //get components
         rb2d = GetComponent<Rigidbody2D>();
-        springJoint2D = GetComponent<SpringJoint2D>();
 
-        //intialize anchor at object position
-        springJoint2D.anchor = transform.position;
     }
     void FixedUpdate()
     {
