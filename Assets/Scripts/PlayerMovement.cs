@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
-    public float jumpSpeed = 10;
-    public float moveSpeed = 2;
+    public float jumpForce = 10;
+    public float moveForce = 2;
     public float maxSpeed = 5f;
 
     [Header("Rotation")]
@@ -32,16 +32,19 @@ public class PlayerMovement : MonoBehaviour
     {
         float horizontal = Input.GetAxis("Horizontal");
 
-        rb2d.AddForce(horizontal * moveSpeed * transform.right, ForceMode2D.Force);
+        rb2d.AddForce(horizontal * moveForce * Vector2.right, ForceMode2D.Force);
 
         //sets a max speed so the player doesn't accelerate to infinity
         LimitVelocity();
+
+        //clamp rotation
+        ClampRotation();
     }
     private void OnJump()
     {
         if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded == true)
         {
-            rb2d.AddForce(transform.up * jumpSpeed, ForceMode2D.Impulse);
+            rb2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             isGrounded = false;
         }
     }
@@ -49,19 +52,24 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 playerEulerAngles = transform.localEulerAngles;
 
-        playerEulerAngles.z = (playerEulerAngles.z > 180) ? playerEulerAngles.z - 360 : playerEulerAngles.z;
         playerEulerAngles.z = Mathf.Clamp(playerEulerAngles.z, -playerMaxRotation, playerMaxRotation);
 
-        transform.localRotation = Quaternion.Euler(playerEulerAngles);
+        transform.rotation = Quaternion.Euler(0, 0, playerEulerAngles.z);
     }
     private void LimitVelocity()
     {
-        if (rb2d.velocity.magnitude > maxSpeed)
-            rb2d.velocity = Vector2.ClampMagnitude(rb2d.velocity, maxSpeed);
+        rb2d.velocity = new Vector2(Mathf.Clamp(rb2d.velocity.x, -maxSpeed, maxSpeed), rb2d.velocity.y);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Planet"))
             isGrounded = true;
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Pickup"))
+        {
+            Destroy(other.gameObject);
+        }
     }
 }
