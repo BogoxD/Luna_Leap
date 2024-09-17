@@ -138,6 +138,7 @@ MonoBehaviour:
   rotationMultiplier: 2
   isGrounded: 0
   isJetpacking: 0
+  pickUpSoundClip: {fileID: 8300000, guid: a4d4bbe40e490314398aac9f9685365e, type: 3}
 --- !u!50 &7802899200630965920
 Rigidbody2D:
   serializedVersion: 4
