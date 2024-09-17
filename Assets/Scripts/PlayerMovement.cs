@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Rotation")]
     public float playerMaxRotation = 20f;
+    public float rotationMultiplier = 2f;
 
 
     private Rigidbody2D rb2d;
@@ -26,12 +27,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        OnMove();
         OnJump();
     }
     private void FixedUpdate()
     {
-        ClampRotation();
+        OnMove();
 
         if (isJetpacking)
         {
@@ -46,10 +46,14 @@ public class PlayerMovement : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
 
         rb2d.AddForce(horizontal * moveForce * Vector2.right, ForceMode2D.Force);
-        
+
+        //rotate player towards horizontal input
+        transform.eulerAngles -= Vector3.forward * horizontal * rotationMultiplier;
+
         //sets a max speed so the player doesn't accelerate to infinity
         LimitVelocity();
 
+        ClampRotation();
     }
     private void OnJump()
     {
