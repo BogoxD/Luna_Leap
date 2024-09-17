@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isJetpacking;
 
     //Sound Effects
-    //[SerializeField] AudioClip pickUpSoundClip;
+    [SerializeField] AudioClip pickUpSoundClip;
 
     // Start is called before the first frame update
     void Start()
@@ -94,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.CompareTag("Pickup"))
         {
-            //SoundFXManager.Instance.PlaySoundFXClip(pickUpSoundClip, transform, 1f);
+            SoundFXManager.Instance.PlaySoundFXClip(pickUpSoundClip, transform, 1f);
             Destroy(other.gameObject);
         }
     }
