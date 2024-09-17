@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9807365cd4fcbbf458c5bc6a4e2dc805, type: 3}
-  m_Name: New Rotate Behavior JB
+  m_Script: {fileID: 11500000, guid: d13e6450993f74d4c8e81ca74c87e0bc, type: 3}
+  m_Name: 2_-3_+3 Move Y Behavior JB
   m_EditorClassIdentifier: 
-  rotationSpeed: 50
+  speed: 2
+  minY: -3
+  maxY: 3
