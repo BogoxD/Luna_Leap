@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb2d;
     public bool isGrounded;
+    public bool isJetpacking;
 
     // Start is called before the first frame update
     void Start()
@@ -28,17 +29,27 @@ public class PlayerMovement : MonoBehaviour
         OnMove();
         OnJump();
     }
+    private void FixedUpdate()
+    {
+        ClampRotation();
+
+        if (isJetpacking)
+        {
+            rb2d.gravityScale = 0;
+            JetPacking();
+        }
+        else
+            rb2d.gravityScale = 1;
+    }
     private void OnMove()
     {
         float horizontal = Input.GetAxis("Horizontal");
 
         rb2d.AddForce(horizontal * moveForce * Vector2.right, ForceMode2D.Force);
-
+        
         //sets a max speed so the player doesn't accelerate to infinity
         LimitVelocity();
 
-        //clamp rotation
-        //ClampRotation();
     }
     private void OnJump()
     {
@@ -48,13 +59,20 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = false;
         }
     }
+    private void JetPacking()
+    {
+        float vertical = Input.GetAxis("Vertical");
+
+        rb2d.AddForce(vertical * moveForce * Vector2.up, ForceMode2D.Force);
+    }
     private void ClampRotation()
     {
         Vector3 playerEulerAngles = transform.localEulerAngles;
 
+        playerEulerAngles.z = (playerEulerAngles.z > 180) ? playerEulerAngles.z - 360 : playerEulerAngles.z;
         playerEulerAngles.z = Mathf.Clamp(playerEulerAngles.z, -playerMaxRotation, playerMaxRotation);
 
-        transform.rotation = Quaternion.Euler(0, 0, playerEulerAngles.z);
+        transform.rotation = Quaternion.Euler(playerEulerAngles);
     }
     private void LimitVelocity()
     {
