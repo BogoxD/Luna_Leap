@@ -19,7 +19,7 @@ public class PlanetControllerJB : MonoBehaviour {
             foreach (var behavior in behaviors) {
                 if (behavior is DisappearRespawnBehaviorJB disappearRespawn) {
                     // Call OnPlanetTouched for the disappearing and respawning behavior
-                    disappearRespawn.OnPlanetTouched(transform);
+                    disappearRespawn.OnPlanetTouched(this); // Pass in this PlanetControllerJB object
                 }
             }
         }
