@@ -5,6 +5,7 @@ using System.Collections;
 public class DisappearRespawnBehaviorJB : PlanetBehaviorJB {
     public float countdownTime = 3f;          // Time before the planet disappears after being touched
     public float respawnTime = 5f;            // Time to respawn after disappear
+    public GameObject planetFallParticleSystemPrefab;
 
     // Apply behavior every frame
     public override void ApplyBehavior(Transform planetTransform) {
@@ -26,8 +27,22 @@ public class DisappearRespawnBehaviorJB : PlanetBehaviorJB {
         planetState.isProcessing = true;  // Mark this planet as processing to prevent multiple touches
         Debug.Log("Planet touched, starting countdown");
 
+        // Instantiate the PlanetFallParticleSystem at the planet's position and make it a child of the planet
+        GameObject particleSystemInstance = Instantiate(planetFallParticleSystemPrefab, planetTransform.position, Quaternion.identity, planetTransform);
+
+        // Adjust the scale of the particle system to match the planet's scale
+        particleSystemInstance.transform.localScale = planetTransform.localScale * 0.25f;
+
+        ParticleSystem particleSystem = particleSystemInstance.GetComponent<ParticleSystem>();
+        particleSystem.Play();
+
         // Wait for the countdown before "disappearing"
         yield return new WaitForSeconds(countdownTime);
+
+        particleSystem.Stop();
+        Destroy(particleSystemInstance);
+
+
 
         // Hide the planet by disabling its Renderer and/or Collider
         Renderer planetRenderer = planetTransform.GetComponent<Renderer>();

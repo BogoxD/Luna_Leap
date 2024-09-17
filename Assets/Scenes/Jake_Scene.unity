@@ -335,6 +335,7 @@ GameObject:
   - component: {fileID: 772118806}
   - component: {fileID: 772118811}
   - component: {fileID: 772118810}
+  - component: {fileID: 772118812}
   m_Layer: 0
   m_Name: planets_test_8
   m_TagString: Planet
@@ -506,6 +507,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &772118812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772118805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feee90b7488f4e948b0fcaae6a4253c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originalPosition: {x: 0, y: 0, z: 0}
+  isProcessing: 0
 --- !u!1 &926310308
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,6 +533,7 @@ GameObject:
   - component: {fileID: 926310310}
   - component: {fileID: 926310309}
   - component: {fileID: 926310312}
+  - component: {fileID: 926310313}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Planet
@@ -642,6 +658,21 @@ MonoBehaviour:
   behaviors:
   - {fileID: 11400000, guid: bb97cb2055c281447a3deed6c00cfc41, type: 2}
   - {fileID: 11400000, guid: ab4fe103cb9efdc448a56fa43847e548, type: 2}
+  - {fileID: 11400000, guid: 64154c893f2b06344aa176f7968ae022, type: 2}
+--- !u!114 &926310313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926310308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feee90b7488f4e948b0fcaae6a4253c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originalPosition: {x: 0, y: 0, z: 0}
+  isProcessing: 0
 --- !u!1 &1462290027
 GameObject:
   m_ObjectHideFlags: 0
