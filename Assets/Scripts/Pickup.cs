@@ -5,22 +5,11 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour, IItem
 {
-    public static event Action<int> OncarrotCollect;
+    public static event Action<int> OnCarrotCollect;
     public int worth = 5;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-       
-    }
     public void CollectCarrot()
     {
-        OncarrotCollect.Invoke(worth);
+        OnCarrotCollect.Invoke(worth);
     }
 
     private void OnTriggerEnter(Collider other)
