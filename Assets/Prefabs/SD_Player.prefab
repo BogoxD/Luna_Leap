@@ -129,7 +129,7 @@ MonoBehaviour:
   isGrounded: 0
   isDead: 0
   isMoving: 0
-  animator: {fileID: 0}
+  animator: {fileID: 167298835556984264}
   isJetpacking: 0
   pickUpSoundClip: {fileID: 0}
 --- !u!58 &3125977621155127060
