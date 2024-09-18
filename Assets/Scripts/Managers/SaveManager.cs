@@ -12,7 +12,7 @@ public static class SaveManager {
         }
     }
 
-    // Load the highest level the player has unlocked
+    // Load the highest level the player has got to
     public static int LoadProgress() {
         return PlayerPrefs.GetInt("HighestLevel", 1); // Default is Level 1 unlocked
     }
@@ -20,10 +20,10 @@ public static class SaveManager {
     // Update the level buttons to reflect the player's progress
     public static void UpdateLevelButtons() {
         int highestLevel = LoadProgress();
-        int totalLevels = 2; // Update this to the total number of levels in your game
+        int totalLevels = 2; // Update this to the total number of levels
 
         for (int i = 1; i <= totalLevels; i++) {
-            // Update the names to match the actual buttons (e.g., "Level 1", "Level 2", etc.)
+            // Names to match the actual buttons
             GameObject button = GameObject.Find("Level " + i);
 
             if (button != null) {
