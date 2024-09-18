@@ -121,17 +121,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b511d869ac4e62842842c1535a7853fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 10
-  moveForce: 2
-  maxSpeed: 5
-  playerMaxRotation: 20
+  jumpForce: 1
+  moveForce: 1.5
+  maxSpeed: 2
+  playerMaxRotation: 0
   rotationMultiplier: 2
   isGrounded: 0
   isDead: 0
   isMoving: 0
-  animator: {fileID: 167298835556984264}
   isJetpacking: 0
-  pickUpSoundClip: {fileID: 0}
+  animator: {fileID: 167298835556984264}
+  pickUpSoundClip: {fileID: 8300000, guid: a4d4bbe40e490314398aac9f9685365e, type: 3}
 --- !u!58 &3125977621155127060
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -179,7 +179,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.25
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1

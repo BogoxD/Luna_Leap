@@ -19,9 +19,11 @@ public class PlayerMovement : MonoBehaviour
 
     public bool isDead = false;
     public bool isMoving = false;
-    public Animator animator;
-
     public bool isJetpacking;
+    private Transform respawnPoint;
+
+    private bool isFacingRight = true;
+    public Animator animator;
 
     //Sound Effects
     [SerializeField] AudioClip pickUpSoundClip;
@@ -31,12 +33,15 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        // Automatically find the GameObject with tag "Respawn" in the scene
+        FindRespawnPoint();
     }
 
     // Update is called once per frame
     void Update()
     {
         OnJump();
+        CheckFall();
 
         //animation stuff below
         animator.SetFloat("yVelocity", rb2d.velocity.y); // Vertical velocity for jumping/falling
@@ -69,42 +74,47 @@ public class PlayerMovement : MonoBehaviour
         //rotate player towards horizontal input
         transform.eulerAngles -= Vector3.forward * horizontal * rotationMultiplier;
 
+        // Flip the sprite based on direction
+        FlipSprite(horizontal);
+
         //sets a max speed so the player doesn't accelerate to infinity
         LimitVelocity();
-
-
-        //clamp rotation
-        //ClampRotation();
-
-        if (Mathf.Abs(horizontal) > 0 && isGrounded)
-        {
-            animator.SetBool("isMoving", true);
-        }
-        else
-        {
-            animator.SetBool("isMoving", false);
-        }
-        
-
         ClampRotation();
-
     }
+
+    private void FlipSprite(float horizontal) {
+        if (horizontal > 0 && !isFacingRight) {
+            Flip(); 
+        } else if (horizontal < 0 && isFacingRight) {
+            Flip(); 
+        }
+    }
+
+    private void Flip() {
+        // Switch the way the player is labeled as facing
+        isFacingRight = !isFacingRight;
+        Vector3 playerScale = transform.localScale;
+        playerScale.x *= -1;
+        transform.localScale = playerScale;
+    }
+
     private void OnJump()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded == true)
-        {
+        if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && isGrounded == true) {
             rb2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             isGrounded = false;
 
             animator.SetTrigger("Jump");
         }
     }
+
     private void JetPacking()
     {
         float vertical = Input.GetAxis("Vertical");
 
         rb2d.AddForce(vertical * moveForce * Vector2.up, ForceMode2D.Force);
     }
+
     private void ClampRotation()
     {
         Vector3 playerEulerAngles = transform.localEulerAngles;
@@ -114,15 +124,41 @@ public class PlayerMovement : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(playerEulerAngles);
     }
+
     private void LimitVelocity()
     {
         rb2d.velocity = new Vector2(Mathf.Clamp(rb2d.velocity.x, -maxSpeed, maxSpeed), rb2d.velocity.y);
     }
+
+    private void CheckFall() {
+        // Check if the player's Y pos is below -20
+        if (transform.position.y < -20) {
+            Respawn();
+        }
+    }
+
+    private void Respawn() {
+        // Set the player's position to the respawn point
+        if (respawnPoint != null) {
+            transform.position = respawnPoint.position;
+            rb2d.velocity = Vector2.zero; // Reset velocity
+        }
+    }
+
+    private void FindRespawnPoint() {
+        // Automatically find the respawn point
+        GameObject respawnObject = GameObject.FindGameObjectWithTag("Respawn");
+        if (respawnObject != null) {
+            respawnPoint = respawnObject.transform;
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Planet"))
             isGrounded = true;
     }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Pickup"))
