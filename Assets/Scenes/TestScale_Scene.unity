@@ -3792,7 +3792,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9139874506620362043, guid: a3a7c9d39ab2391458ebd107c83bbff6, type: 3}
       propertyPath: playerMaxRotation
-      value: 0
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5023944672643244555, guid: a3a7c9d39ab2391458ebd107c83bbff6, type: 3}
