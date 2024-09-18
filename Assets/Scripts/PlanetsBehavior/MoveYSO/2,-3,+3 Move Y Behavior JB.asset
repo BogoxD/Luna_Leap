@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f3700bf9cc65a14ab4b29777b137718, type: 3}
-  m_Name: New Disappear Respawn Behavior JB
+  m_Script: {fileID: 11500000, guid: d13e6450993f74d4c8e81ca74c87e0bc, type: 3}
+  m_Name: 2,-3,+3 Move Y Behavior JB
   m_EditorClassIdentifier: 
-  respawnTime: 3
+  speed: 2
+  minY: -3
+  maxY: 3

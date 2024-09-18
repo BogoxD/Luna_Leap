@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d13e6450993f74d4c8e81ca74c87e0bc, type: 3}
-  m_Name: 2_-3_+3 Move Y Behavior JB
+  m_Script: {fileID: 11500000, guid: 82c625a056d7b1e4684753d59d2bdcd3, type: 3}
+  m_Name: 1,-5,+5 Move X Behavior JB
   m_EditorClassIdentifier: 
-  speed: 2
-  minY: -3
-  maxY: 3
+  speed: 1
+  minX: -5
+  maxX: 5
