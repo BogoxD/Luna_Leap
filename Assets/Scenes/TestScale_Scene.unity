@@ -3793,7 +3793,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2385833194393979508, guid: 1099c6d8eb4befa409087bece92a2d2c, type: 3}
       propertyPath: m_Name
-      value: SD_Player
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2385833194393979508, guid: 1099c6d8eb4befa409087bece92a2d2c, type: 3}
       propertyPath: m_TagString
