@@ -9,6 +9,8 @@ public class CollectorManager : MonoBehaviour {
     private GameObject portal;
     private bool portalActive = false;
 
+    [SerializeField] AudioClip portalActiveClip;
+
     private void Start() {
         // Reset progress when the scene starts
         ResetProgress();
@@ -42,6 +44,7 @@ public class CollectorManager : MonoBehaviour {
                 portal.SetActive(true);
                 portalActive = true;
                 Debug.Log("Portal Open");
+                SoundFXManager.Instance.PlaySoundFXClip(portalActiveClip, transform, 1f);
             }
         }
     }
