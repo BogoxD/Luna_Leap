@@ -98,7 +98,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 576466838774510459, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
       propertyPath: m_Name
-      value: Planet_Pref (1) Variant
+      value: PlanetInWater
       objectReference: {fileID: 0}
     - target: {fileID: 3813365935088369957, guid: 7b265b226945cf543b3ac3a42dd33649, type: 3}
       propertyPath: m_LocalPosition.x
