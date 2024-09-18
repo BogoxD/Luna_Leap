@@ -27,6 +27,9 @@ public class PlayerMovement : MonoBehaviour
 
     //Sound Effects
     [SerializeField] AudioClip pickUpSoundClip;
+    [SerializeField] AudioClip jumpClip;
+    [SerializeField] AudioClip startClip;
+    [SerializeField] AudioClip restartClip;
 
 
     // Start is called before the first frame update
@@ -35,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         // Automatically find the GameObject with tag "Respawn" in the scene
         FindRespawnPoint();
+
+        SoundFXManager.Instance.PlaySoundFXClip(startClip, transform, 1f);
     }
 
     // Update is called once per frame
@@ -105,6 +110,8 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = false;
 
             animator.SetTrigger("Jump");
+
+            SoundFXManager.Instance.PlaySoundFXClip(jumpClip, transform, 1f);
         }
     }
 
@@ -142,6 +149,8 @@ public class PlayerMovement : MonoBehaviour
         if (respawnPoint != null) {
             transform.position = respawnPoint.position;
             rb2d.velocity = Vector2.zero; // Reset velocity
+
+            SoundFXManager.Instance.PlaySoundFXClip(restartClip, transform, 1f);
         }
     }
 
