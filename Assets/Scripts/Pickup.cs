@@ -1,23 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pickup : MonoBehaviour
+public class Pickup : MonoBehaviour, IItem
 {
-    // Start is called before the first frame update
-    void Start()
+    public static event Action<int> OnCarrotCollect;
+    public int worth = 5;
+    public void CollectCarrot()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-       
+        OnCarrotCollect.Invoke(worth);
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        CollectCarrot();
         if (other.CompareTag("Pickup"))
             other.gameObject.SetActive(false);
     }
