@@ -271,10 +271,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpaceCarrot
       objectReference: {fileID: 0}
-    - target: {fileID: 8091415636609490932, guid: 07194e4d87bd9464b9bbd72f8006be07, type: 3}
-      propertyPath: worth
-      value: 100
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
