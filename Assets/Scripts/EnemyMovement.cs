@@ -15,13 +15,15 @@ public class EnemyMovement : MonoBehaviour
     private bool readyToAttack;
     private bool hasPreparedAttack = true;
 
+    private Rigidbody2D enemyRb;
+
 
     void Start()
     {
 
         player = GameObject.Find("Player");
         readyToAttack = true;
-
+        enemyRb = GetComponent<Rigidbody2D>();
     }
 
 
@@ -34,8 +36,8 @@ public class EnemyMovement : MonoBehaviour
             hasPreparedAttack = true;
             Vector2 lookDirection = (player.transform.position - transform.position).normalized;
 
-            transform.Translate(lookDirection * moveSpeed * Time.deltaTime, Space.World);
-
+            //         transform.Translate(lookDirection * attackSpeed * Time.deltaTime, Space.World);
+            enemyRb.AddForce(lookDirection * attackSpeed);
 
         }
 
@@ -60,6 +62,7 @@ public class EnemyMovement : MonoBehaviour
         if (collision.collider.CompareTag("Player"))
         {
             Debug.Log("Gotcha");
+            
             readyToAttack = false;
         }
         
