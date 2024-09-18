@@ -132,7 +132,10 @@ MonoBehaviour:
   isMoving: 0
   isJetpacking: 0
   animator: {fileID: 167298835556984264}
-  pickUpSoundClip: {fileID: 8300000, guid: a4d4bbe40e490314398aac9f9685365e, type: 3}
+  pickUpSoundClip: {fileID: 8300000, guid: 6e6d517960cc4c9429b4a028db086e6d, type: 3}
+  jumpClip: {fileID: 8300000, guid: b6c1caad01895c348ac895de80c97a06, type: 3}
+  startClip: {fileID: 8300000, guid: 44e6240002eb90742af1eb64cf054b56, type: 3}
+  restartClip: {fileID: 8300000, guid: 88a598604e2866e45af3a4e15e019ab5, type: 3}
 --- !u!58 &3125977621155127060
 CircleCollider2D:
   m_ObjectHideFlags: 0
