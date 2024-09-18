@@ -31,7 +31,7 @@ public class DisappearRespawnBehaviorJB : PlanetBehaviorJB {
         GameObject particleSystemInstance = Instantiate(planetFallParticleSystemPrefab, planetTransform.position, Quaternion.identity, planetTransform);
 
         // Adjust the scale of the particle system to match the planet's scale
-        particleSystemInstance.transform.localScale = planetTransform.localScale * 0.25f;
+        particleSystemInstance.transform.localScale = planetTransform.localScale * 0.75f;
 
         ParticleSystem particleSystem = particleSystemInstance.GetComponent<ParticleSystem>();
         particleSystem.Play();

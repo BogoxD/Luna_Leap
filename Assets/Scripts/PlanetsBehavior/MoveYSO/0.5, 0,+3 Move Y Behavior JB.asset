@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d13e6450993f74d4c8e81ca74c87e0bc, type: 3}
-  m_Name: 2,-3,+3 Move Y Behavior JB
+  m_Name: 0.5, 0,+3 Move Y Behavior JB
   m_EditorClassIdentifier: 
-  speed: 2
-  minY: -3
+  speed: 0.5
+  minY: 0
   maxY: 3
