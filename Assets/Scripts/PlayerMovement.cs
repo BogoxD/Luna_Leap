@@ -15,7 +15,9 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb2d;
     public bool isGrounded;
-
+    public bool isDead = false;
+    public bool isMoving = false;
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +29,14 @@ public class PlayerMovement : MonoBehaviour
     {
         OnMove();
         OnJump();
+
+        //animation stuff below
+        animator.SetFloat("yVelocity", rb2d.velocity.y); // Vertical velocity for jumping/falling
+        animator.SetFloat("Magnitude", Mathf.Abs(rb2d.velocity.x)); // Horizontal movement speed for running/walking
+        animator.SetBool("isGrounded", isGrounded); // Grounded check for jump/land animations
+        animator.SetBool("isDead", isDead); // Trigger death animation if necessary
     }
+
     private void OnMove()
     {
         float horizontal = Input.GetAxis("Horizontal");
@@ -39,6 +48,16 @@ public class PlayerMovement : MonoBehaviour
 
         //clamp rotation
         //ClampRotation();
+
+        if (Mathf.Abs(horizontal) > 0 && isGrounded)
+        {
+            animator.SetBool("isMoving", true);
+        }
+        else
+        {
+            animator.SetBool("isMoving", false);
+        }
+        
     }
     private void OnJump()
     {
@@ -46,6 +65,8 @@ public class PlayerMovement : MonoBehaviour
         {
             rb2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             isGrounded = false;
+
+            animator.SetTrigger("Jump");
         }
     }
     private void ClampRotation()
