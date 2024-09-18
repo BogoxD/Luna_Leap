@@ -159,10 +159,8 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = true;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Pickup"))
-        {
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.CompareTag("Pickup")) {
             SoundFXManager.Instance.PlaySoundFXClip(pickUpSoundClip, transform, 1f);
             Destroy(other.gameObject);
         }

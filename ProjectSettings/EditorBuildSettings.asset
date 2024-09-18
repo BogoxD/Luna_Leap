@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Bogdan_Scene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/TestScale_Scene.unity
+    guid: 1b3bb3c067e82994ca691f21e9c897da
+  - enabled: 1
+    path: Assets/Scenes/Jake_Scene.unity
+    guid: 38565b0505d0ec84089c0e0e88801ac8
   m_configObjects: {}
