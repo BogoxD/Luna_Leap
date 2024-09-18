@@ -22,15 +22,19 @@ public class Portal : MonoBehaviour {
         // Check if the player collided with the portal and the portal is active
         if (collectorManager != null && collectorManager.IsPortalActive() && other.CompareTag("Player")) {
             Debug.Log("Player collided with portal. Loading next level...");
-            LoadNextLevel();
+            SaveProgressAndLoadNextLevel();
         }
     }
 
-    void LoadNextLevel() {
-        // Get the current scene index
+    // Save progress and load the next level
+    void SaveProgressAndLoadNextLevel() {
+        // Get the current scene index (which represents the current level number)
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-        // Check if there's another level to load
+        // Save the progress for the current level
+        SaveManager.SaveProgress(currentSceneIndex);
+        Debug.Log("Saved level");
+        // Load the next level if available
         if (currentSceneIndex + 1 < SceneManager.sceneCountInBuildSettings) {
             // Reset progress for the next level (if needed)
             CollectorManager.progressAmount = 0;
