@@ -162,13 +162,13 @@ MonoBehaviour:
   maxFallSpeed: 10
   fallSpeedMultiplier: 5
   isGrounded: 0
-  isDead: 0
+  isDead: 1
   isMoving: 0
   isJetpacking: 0
   animator: {fileID: 3450633266630224925}
   pickUpSoundClip: {fileID: 8300000, guid: 6e6d517960cc4c9429b4a028db086e6d, type: 3}
-  jumpClip: {fileID: 8300000, guid: fc481f2607c453345a69edbfc21854ef, type: 3}
-  startClip: {fileID: 8300000, guid: f9e081b6b99be894dac66825230995b5, type: 3}
+  jumpClip: {fileID: 8300000, guid: b6c1caad01895c348ac895de80c97a06, type: 3}
+  startClip: {fileID: 8300000, guid: 44e6240002eb90742af1eb64cf054b56, type: 3}
   restartClip: {fileID: 8300000, guid: e951d63f947ac8e4a86cf1a006cdf426, type: 3}
   fallingClip: {fileID: 8300000, guid: 65da77a77e29f7e4e8a007ae273f411d, type: 3}
 --- !u!58 &7538034663327768732
