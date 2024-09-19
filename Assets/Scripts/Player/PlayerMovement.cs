@@ -51,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
         OnJump();
         Gravity();
         CheckFall();
+        OnMove();
 
         //animation stuff below
         animator.SetFloat("yVelocity", rb2d.velocity.y); // Vertical velocity for jumping/falling
@@ -63,8 +64,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        OnMove();
-
         if (isJetpacking)
         {
             rb2d.gravityScale = 0;
