@@ -29,11 +29,12 @@ public class SpawnerManager : MonoBehaviour
             for (int j = 0; j < ObjectsPerWave; j++)
             {
                 int randIndex = Random.Range(0, spawnPrefabs.Length);
-
+                float randX = Random.Range(-rangeXpos, rangeXpos);
+                float randY = Random.Range(-rangeYpos, rangeYpos);
 
                 GameObject spawnedObject = Instantiate(
                     spawnPrefabs[randIndex], 
-                    transform.position + new Vector3(rangeXpos, rangeYpos), 
+                    transform.position + new Vector3(randX, randY), 
                     Quaternion.identity);
 
             }
