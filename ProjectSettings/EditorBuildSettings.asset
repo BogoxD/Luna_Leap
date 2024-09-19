@@ -13,11 +13,14 @@ EditorBuildSettings:
     guid: 6168a16e4b9f5444e82d3287f4699c7c
   - enabled: 1
     path: Assets/Scenes/Map_2.unity
-    guid: 8320f98a849756644be993a8fe96ffb0
-  - enabled: 1
-    path: Assets/Scenes/Map_3.unity
     guid: 8d00a6d4dad1cab4aa2fb4b68dbd00bf
   - enabled: 1
-    path: Assets/Scenes/Map_4.unity
+    path: Assets/Scenes/Map_3.unity
     guid: c04b0f2d52894934eb9c7e0b6268fe86
+  - enabled: 1
+    path: Assets/Scenes/Map_4.unity
+    guid: 8320f98a849756644be993a8fe96ffb0
+  - enabled: 1
+    path: Assets/Scenes/Map_5.unity
+    guid: 6f6b1f0ee548aa24fb05cda6a19bbf5e
   m_configObjects: {}
