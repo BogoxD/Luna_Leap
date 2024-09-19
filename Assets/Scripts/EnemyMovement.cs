@@ -26,7 +26,7 @@ public class EnemyMovement : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
-        player = GameObject.Find("Player");
+
         readyToAttack = true;
         enemyRb = GetComponent<Rigidbody2D>();
     }
@@ -34,7 +34,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-
+        player = GameObject.Find("Player");
 
         if (readyToAttack == true)
         {
