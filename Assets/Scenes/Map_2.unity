@@ -4164,6 +4164,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 701309065976377214, guid: 1099c6d8eb4befa409087bece92a2d2c, type: 3}
+      propertyPath: baseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 701309065976377214, guid: 1099c6d8eb4befa409087bece92a2d2c, type: 3}
+      propertyPath: fallingClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 65da77a77e29f7e4e8a007ae273f411d, type: 3}
+    - target: {fileID: 701309065976377214, guid: 1099c6d8eb4befa409087bece92a2d2c, type: 3}
+      propertyPath: maxFallSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 701309065976377214, guid: 1099c6d8eb4befa409087bece92a2d2c, type: 3}
+      propertyPath: fallSpeedMultiplier
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2385833194393979508, guid: 1099c6d8eb4befa409087bece92a2d2c, type: 3}
       propertyPath: m_Name
       value: SD_Player

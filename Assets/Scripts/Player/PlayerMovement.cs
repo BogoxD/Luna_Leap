@@ -35,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] AudioClip jumpClip;
     [SerializeField] AudioClip startClip;
     [SerializeField] AudioClip restartClip;
+    [SerializeField] AudioClip fallingClip;
+    private bool hasPlayedFallSound = false;
 
 
     // Start is called before the first frame update
@@ -144,10 +146,23 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Gravity() {
-        //check if Y is less than 0 e.g falling
+        // Check if the player is falling (velocity.y < 0)
         if (rb2d.velocity.y < 0) {
             rb2d.gravityScale = baseGravity * fallSpeedMultiplier; //fall faster longer you fall
-            rb2d.velocity = new Vector2(rb2d.velocity.x, Mathf.Max(rb2d.velocity.y, -maxFallSpeed)); //cap at max fall speed set
+
+            // Check if the player is falling at or below the maximum fall speed
+            if (rb2d.velocity.y <= -maxFallSpeed) {
+                rb2d.velocity = new Vector2(rb2d.velocity.x, -maxFallSpeed); //cap at max fall speed
+
+                // Only play the sound effect if it hasn't been played yet
+                if (!hasPlayedFallSound) {
+                    SoundFXManager.Instance.PlaySoundFXClip(fallingClip, transform, 1f);
+                    hasPlayedFallSound = true; // Prevent sound from repeating
+                }
+            }
+        } else {
+            // Reset the flag when the player stops falling or starts moving upwards
+            hasPlayedFallSound = false;
         }
     }
 
