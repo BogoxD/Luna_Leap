@@ -5,21 +5,21 @@ using UnityEngine.UI;
 
 public class CollectorManager : MonoBehaviour {
     public static int progressAmount;
-    public Slider progressSlider;
+    private Slider progressSlider;
     private GameObject portal;
     private bool portalActive = false;
 
     [SerializeField] AudioClip portalActiveClip;
 
     private void Start() {
-        // Reset progress when the scene starts
+        GameObject sliderObject = GameObject.Find("CarrotSlider");
+        progressSlider = sliderObject.GetComponent<Slider>();
+        portal = GameObject.FindGameObjectWithTag("Portal");
+
         ResetProgress();
 
         // Subscribe to the event to increase progress
         Pickup.OnCarrotCollect += IncreaseProgressAmount;
-
-        // Find the GameObject tagged with "Portal"
-        portal = GameObject.FindGameObjectWithTag("Portal");
 
         // Deactivate the portal initially
         if (portal != null) {
