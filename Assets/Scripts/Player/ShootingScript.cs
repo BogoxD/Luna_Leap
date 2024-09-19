@@ -30,7 +30,7 @@ public class ShootingScript : MonoBehaviour
         //play soundbites
         
         int chanceToSay = Random.Range(1, 5);
-        if (chanceToSay < 3 )
+        if (chanceToSay < 2 )
         {
             SoundFXManager.Instance.PlaySoundFXClip(sayHelloClip, transform, 1f);
         }
