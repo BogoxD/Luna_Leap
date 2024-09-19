@@ -2780,6 +2780,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 701309065976377214, guid: 1099c6d8eb4befa409087bece92a2d2c, type: 3}
+      propertyPath: moveForce
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2385833194393979508, guid: 1099c6d8eb4befa409087bece92a2d2c, type: 3}
       propertyPath: m_Name
       value: SD_Player
