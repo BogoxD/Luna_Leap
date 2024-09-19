@@ -17,23 +17,23 @@ public static class SaveManager {
         return PlayerPrefs.GetInt("HighestLevel", 1); // Default is Level 1 unlocked
     }
 
-    // Update the level buttons to reflect the player's progress
+    // Update the level buttons to match the player's progress
     public static void UpdateLevelButtons() {
-        int highestLevel = LoadProgress();
-        int totalLevels = 2; // Update this to the total number of levels
+        int highestLevel = LoadProgress(); // Load the highest completed level
+        int totalLevels = 2; // Update this to the total number of levels you have
 
         for (int i = 1; i <= totalLevels; i++) {
-            // Names to match the actual buttons
+            // Find the level button by its name
             GameObject button = GameObject.Find("Level " + i);
 
             if (button != null) {
                 Button btnComponent = button.GetComponent<Button>();
+
+                // Make buttons interactable if they correspond to levels less than or equal to the highest completed
                 if (i <= highestLevel) {
-                    // Make the button interactable if the level is unlocked
                     btnComponent.interactable = true;
                     Debug.Log($"Button {i} is interactable");
                 } else {
-                    // Otherwise, disable interaction
                     btnComponent.interactable = false;
                     Debug.Log($"Button {i} is not interactable");
                 }
@@ -41,7 +41,8 @@ public static class SaveManager {
         }
     }
 
-    // Optional: Clear saved progress
+
+    //Clear saved progress
     public static void ClearProgress() {
         PlayerPrefs.DeleteKey("HighestLevel");
         UpdateLevelButtons();
