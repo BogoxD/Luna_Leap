@@ -125,8 +125,9 @@ MonoBehaviour:
   jumpForce: 1
   moveForce: 1.5
   maxSpeed: 2
-  playerMaxRotation: 0
-  rotationMultiplier: 2
+  baseGravity: 5
+  maxFallSpeed: 10
+  fallSpeedMultiplier: 5
   isGrounded: 0
   isDead: 0
   isMoving: 0
@@ -136,6 +137,7 @@ MonoBehaviour:
   jumpClip: {fileID: 8300000, guid: b6c1caad01895c348ac895de80c97a06, type: 3}
   startClip: {fileID: 8300000, guid: 44e6240002eb90742af1eb64cf054b56, type: 3}
   restartClip: {fileID: 8300000, guid: 88a598604e2866e45af3a4e15e019ab5, type: 3}
+  fallingClip: {fileID: 8300000, guid: 65da77a77e29f7e4e8a007ae273f411d, type: 3}
 --- !u!58 &3125977621155127060
 CircleCollider2D:
   m_ObjectHideFlags: 0
