@@ -9,10 +9,6 @@ public class PlayerMovement : MonoBehaviour
     public float moveForce = 2;
     public float maxSpeed = 5f;
 
-    /*    [Header("Rotation")]
-        public float playerMaxRotation = 20f;
-        public float rotationMultiplier = 2f;*/
-
     //Gravity 
     [SerializeField] private float baseGravity = 5f;
     [SerializeField] private float maxFallSpeed = 10f;
@@ -84,15 +80,11 @@ public class PlayerMovement : MonoBehaviour
 
         rb2d.AddForce(horizontal * moveForce * Vector2.right, ForceMode2D.Force);
 
-        //rotate player towards horizontal input
-        //transform.eulerAngles -= Vector3.forward * horizontal * rotationMultiplier;
-
         // Flip the sprite based on direction
         FlipSprite(horizontal);
 
         //sets a max speed so the player doesn't accelerate to infinity
         LimitVelocity();
-        //ClampRotation();
     }
 
     private void FlipSprite(float horizontal) {
@@ -129,16 +121,6 @@ public class PlayerMovement : MonoBehaviour
 
         rb2d.AddForce(vertical * moveForce * Vector2.up, ForceMode2D.Force);
     }
-
-/*    private void ClampRotation()
-    {
-        Vector3 playerEulerAngles = transform.localEulerAngles;
-
-        playerEulerAngles.z = (playerEulerAngles.z > 180) ? playerEulerAngles.z - 360 : playerEulerAngles.z;
-        playerEulerAngles.z = Mathf.Clamp(playerEulerAngles.z, -playerMaxRotation, playerMaxRotation);
-
-        transform.rotation = Quaternion.Euler(playerEulerAngles);
-    }*/
 
     private void LimitVelocity()
     {

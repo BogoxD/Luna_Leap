@@ -30,5 +30,7 @@ public class PauseMenu : MonoBehaviour {
 
     public void sceneChange(int sceneIndex) {
         SceneManager.LoadScene(sceneIndex);
+        Time.timeScale = 1f; // Resume game time
+        isPaused = false; // Set pause state to false
     }
 }
