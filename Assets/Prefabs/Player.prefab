@@ -158,11 +158,10 @@ MonoBehaviour:
   jumpForce: 1
   moveForce: 1
   maxSpeed: 1.2
-  baseGravity: 5
+  baseGravity: 0.5
   maxFallSpeed: 10
   fallSpeedMultiplier: 5
   isGrounded: 0
-  isDead: 1
   isMoving: 0
   isJetpacking: 0
   animator: {fileID: 3450633266630224925}
