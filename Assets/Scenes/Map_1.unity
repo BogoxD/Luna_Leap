@@ -4775,6 +4775,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 701309065976377214, guid: 1099c6d8eb4befa409087bece92a2d2c, type: 3}
+      propertyPath: jumpForce
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2385833194393979508, guid: 1099c6d8eb4befa409087bece92a2d2c, type: 3}
       propertyPath: m_Name
       value: SD_Player
@@ -4818,6 +4822,10 @@ PrefabInstance:
     - target: {fileID: 3385221850922257704, guid: 1099c6d8eb4befa409087bece92a2d2c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4705370910503690529, guid: 1099c6d8eb4befa409087bece92a2d2c, type: 3}
+      propertyPath: m_Mass
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
