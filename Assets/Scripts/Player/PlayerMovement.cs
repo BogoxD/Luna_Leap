@@ -9,9 +9,10 @@ public class PlayerMovement : MonoBehaviour
     public float moveForce = 2;
     public float maxSpeed = 5f;
 
-    [Header("Rotation")]
-    public float playerMaxRotation = 20f;
-    public float rotationMultiplier = 2f;
+    //Gravity 
+    [SerializeField] private float baseGravity = 5f;
+    [SerializeField] private float maxFallSpeed = 10f;
+    [SerializeField] private float fallSpeedMultiplier = 5f;
 
 
     private Rigidbody2D rb2d;
@@ -30,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] AudioClip jumpClip;
     [SerializeField] AudioClip startClip;
     [SerializeField] AudioClip restartClip;
+    [SerializeField] AudioClip fallingClip;
+    private bool hasPlayedFallSound = false;
 
 
     // Start is called before the first frame update
@@ -46,7 +49,9 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         OnJump();
+        Gravity();
         CheckFall();
+        OnMove();
 
         //animation stuff below
         animator.SetFloat("yVelocity", rb2d.velocity.y); // Vertical velocity for jumping/falling
@@ -59,8 +64,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        OnMove();
-
         if (isJetpacking)
         {
             rb2d.gravityScale = 0;
@@ -76,15 +79,11 @@ public class PlayerMovement : MonoBehaviour
 
         rb2d.AddForce(horizontal * moveForce * Vector2.right, ForceMode2D.Force);
 
-        //rotate player towards horizontal input
-        transform.eulerAngles -= Vector3.forward * horizontal * rotationMultiplier;
-
         // Flip the sprite based on direction
         FlipSprite(horizontal);
 
         //sets a max speed so the player doesn't accelerate to infinity
         LimitVelocity();
-        ClampRotation();
     }
 
     private void FlipSprite(float horizontal) {
@@ -122,19 +121,30 @@ public class PlayerMovement : MonoBehaviour
         rb2d.AddForce(vertical * moveForce * Vector2.up, ForceMode2D.Force);
     }
 
-    private void ClampRotation()
-    {
-        Vector3 playerEulerAngles = transform.localEulerAngles;
-
-        playerEulerAngles.z = (playerEulerAngles.z > 180) ? playerEulerAngles.z - 360 : playerEulerAngles.z;
-        playerEulerAngles.z = Mathf.Clamp(playerEulerAngles.z, -playerMaxRotation, playerMaxRotation);
-
-        transform.rotation = Quaternion.Euler(playerEulerAngles);
-    }
-
     private void LimitVelocity()
     {
         rb2d.velocity = new Vector2(Mathf.Clamp(rb2d.velocity.x, -maxSpeed, maxSpeed), rb2d.velocity.y);
+    }
+
+    private void Gravity() {
+        // Check if the player is falling (velocity.y < 0)
+        if (rb2d.velocity.y < 0) {
+            rb2d.gravityScale = baseGravity * fallSpeedMultiplier; //fall faster longer you fall
+
+            // Check if the player is falling at or below the maximum fall speed
+            if (rb2d.velocity.y <= -maxFallSpeed) {
+                rb2d.velocity = new Vector2(rb2d.velocity.x, -maxFallSpeed); //cap at max fall speed
+
+                // Only play the sound effect if it hasn't been played yet
+                if (!hasPlayedFallSound) {
+                    SoundFXManager.Instance.PlaySoundFXClip(fallingClip, transform, 1f);
+                    hasPlayedFallSound = true; // Prevent sound from repeating
+                }
+            }
+        } else {
+            // Reset the flag when the player stops falling or starts moving upwards
+            hasPlayedFallSound = false;
+        }
     }
 
     private void CheckFall() {

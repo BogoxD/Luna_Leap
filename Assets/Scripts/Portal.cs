@@ -7,7 +7,6 @@ public class Portal : MonoBehaviour {
     private CollectorManager collectorManager;
 
     private void Start() {
-        // Find the CollectorManager in the scene
         collectorManager = FindObjectOfType<CollectorManager>();
 
         if (collectorManager == null) {
@@ -22,23 +21,31 @@ public class Portal : MonoBehaviour {
         // Check if the player collided with the portal and the portal is active
         if (collectorManager != null && collectorManager.IsPortalActive() && other.CompareTag("Player")) {
             Debug.Log("Player collided with portal. Loading next level...");
-            LoadNextLevel();
+            SaveProgressAndLoadNextLevel();
         }
     }
 
-    void LoadNextLevel() {
-        // Get the current scene index
+    void SaveProgressAndLoadNextLevel() {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-        // Check if there's another level to load
+        // Save progress for the next level
+        int nextLevelToUnlock = currentSceneIndex + 1;
+
+        // If the next level exists, save it as unlocked
+        if (nextLevelToUnlock < SceneManager.sceneCountInBuildSettings) {
+            SaveManager.SaveProgress(nextLevelToUnlock); // Save the next level as unlocked
+            Debug.Log("Saved progress for level: " + nextLevelToUnlock);
+        }
+
+        // Load the next level if available
         if (currentSceneIndex + 1 < SceneManager.sceneCountInBuildSettings) {
-            // Reset progress for the next level (if needed)
+            // Reset progress for the next level
             CollectorManager.progressAmount = 0;
 
-            // Load the next scene
+            // Load the next level
             SceneManager.LoadScene(currentSceneIndex + 1);
         } else {
-            Debug.Log("No more levels to load.");
+            Debug.Log("Completed it mate");
         }
     }
 }

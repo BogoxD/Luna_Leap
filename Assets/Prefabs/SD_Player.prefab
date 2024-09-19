@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 99
   m_Sprite: {fileID: -551104890, guid: b4bcb0cf6f725ca4897af28c38c60567, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -122,11 +122,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b511d869ac4e62842842c1535a7853fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 1
-  moveForce: 1.5
+  jumpForce: 2
+  moveForce: 1
   maxSpeed: 2
-  playerMaxRotation: 0
-  rotationMultiplier: 2
+  baseGravity: 5
+  maxFallSpeed: 10
+  fallSpeedMultiplier: 5
   isGrounded: 0
   isDead: 0
   isMoving: 0
@@ -136,6 +137,7 @@ MonoBehaviour:
   jumpClip: {fileID: 8300000, guid: b6c1caad01895c348ac895de80c97a06, type: 3}
   startClip: {fileID: 8300000, guid: 44e6240002eb90742af1eb64cf054b56, type: 3}
   restartClip: {fileID: 8300000, guid: 88a598604e2866e45af3a4e15e019ab5, type: 3}
+  fallingClip: {fileID: 8300000, guid: 65da77a77e29f7e4e8a007ae273f411d, type: 3}
 --- !u!58 &3125977621155127060
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -194,9 +196,9 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &6800640088706031457
 MonoBehaviour:
