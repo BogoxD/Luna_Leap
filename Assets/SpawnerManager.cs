@@ -17,7 +17,8 @@ public class SpawnerManager : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(Spawn());
+        if (spawnPrefabs.Length > 0)
+            StartCoroutine(Spawn());
     }
 
     private IEnumerator Spawn()
@@ -33,8 +34,8 @@ public class SpawnerManager : MonoBehaviour
                 float randY = Random.Range(-rangeYpos, rangeYpos);
 
                 GameObject spawnedObject = Instantiate(
-                    spawnPrefabs[randIndex], 
-                    transform.position + new Vector3(randX, randY), 
+                    spawnPrefabs[randIndex],
+                    transform.position + new Vector3(randX, randY),
                     Quaternion.identity);
 
             }

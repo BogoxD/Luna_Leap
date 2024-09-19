@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,11 +10,13 @@ public class ShootingScript : MonoBehaviour
     public float bulletSpeed = 20f; // Speed of the bullet
     public Animator animator; // Reference to the Animator
 
-    private bool canShoot = true; 
+    
+    private bool hasShot = false; // Track if the shoot animation has already been played
+
     private void Update()
     {
-       
-        if (Input.GetKeyDown(KeyCode.S) && canShoot)
+        // Check if the player presses the space key, can shoot, and hasn't shot already
+        if (Input.GetKeyDown(KeyCode.Space) && !hasShot)
         {
             StartCoroutine(Shoot());
         }
@@ -21,27 +24,36 @@ public class ShootingScript : MonoBehaviour
 
     IEnumerator Shoot()
     {
-        
+        // Set the hasShot flag to true to prevent the animation from playing again
+        hasShot = true;
 
-       
-        animator.SetTrigger("Shoot");
+        // Trigger the shooting animation by setting isShooting bool to true
+        animator.SetBool("isShooting", true);
 
-        yield return new WaitForSeconds(1f);
+        // Wait for 1 second to match the animation or delay
+        yield return new WaitForSeconds(0.3f);
 
+        // Instantiate the bullet at the bullet spawn point
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
 
+        // Get the Rigidbody2D component from the bullet
         Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
-        bulletRb.velocity = bulletSpawnPoint.right * bulletSpeed;
 
-      
+        // Determine the direction based on the player's facing direction (localScale.x)
+        Vector2 shootDirection = transform.localScale.x > 0 ? transform.right : -transform.right;
+
+        // Set the bullet velocity based on the player's facing direction
+        bulletRb.velocity = shootDirection * bulletSpeed;
+
+        // Destroy the bullet after 5 seconds to avoid clutter
         Destroy(bullet, 5f);
 
-       
-        yield return new WaitForSeconds(2f);
+        // After shooting, set the isShooting bool to false to stop the animation
+        animator.SetBool("isShooting", false);
 
-       
-        animator.SetTrigger("Shoot");
+        // Optional: if you want to re-enable shooting after some time or a specific condition
+        yield return new WaitForSeconds(1f);
+
+        hasShot = false;
     }
-
-    
 }
