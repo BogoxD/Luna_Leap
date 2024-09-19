@@ -10,7 +10,10 @@ public class ShootingScript : MonoBehaviour
     public float bulletSpeed = 20f; // Speed of the bullet
     public Animator animator; // Reference to the Animator
 
-    
+    [SerializeField] AudioClip sayHelloClip;
+    [SerializeField] AudioClip gunShotClip;
+
+
     private bool hasShot = false; // Track if the shoot animation has already been played
 
     private void Update()
@@ -24,6 +27,17 @@ public class ShootingScript : MonoBehaviour
 
     IEnumerator Shoot()
     {
+        //play soundbites
+        
+        int chanceToSay = Random.Range(1, 5);
+        if (chanceToSay < 2 )
+        {
+            SoundFXManager.Instance.PlaySoundFXClip(sayHelloClip, transform, 1f);
+        }
+
+       
+        SoundFXManager.Instance.PlaySoundFXClip(gunShotClip, transform, 0.1f);
+
         // Set the hasShot flag to true to prevent the animation from playing again
         hasShot = true;
 

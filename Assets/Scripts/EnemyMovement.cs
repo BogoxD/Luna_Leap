@@ -19,6 +19,8 @@ public class EnemyMovement : MonoBehaviour
 
     private Rigidbody2D enemyRb;
 
+    [SerializeField] AudioClip explosionClip;
+
 
     void Start()
     {
@@ -66,8 +68,12 @@ public class EnemyMovement : MonoBehaviour
         {
             Debug.Log("Gotcha");
 
+            Rigidbody2D playerRB = collision.gameObject.GetComponent<Rigidbody2D>();
+            playerRB.AddForce((player.transform.position - transform.position) * 3, ForceMode2D.Impulse);
+
             readyToAttack = false;
         }
+
 
     }
 
@@ -84,33 +90,18 @@ public class EnemyMovement : MonoBehaviour
 
     }
 
-    //   private void OnTriggerEnter2D(Collider2D other)
-    //   {
-    //       if (other.gameObject.CompareTag("Player"))
-    //           {
-    //          StartCoroutine("PrepareAttack");
-    //          }
-    //   }
-
-    //   private void Retreat()
-    //   {
-
-    //       {
-    //           Vector2 lookDirection = (transform.position - player.transform.position).normalized;
-
-    //           transform.Translate(lookDirection * moveSpeed * Time.deltaTime);
-    //       }
-
-    //   }
+   
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Bullet")) // Make sure the bullet has the tag "Bullet"
         {
-
+            SoundFXManager.Instance.PlaySoundFXClip(explosionClip, transform, 0.2f);
             TakeDamage(1);  // Assume each bullet does 1 damage
 
         }
+
+        
     }
 
     // Handle taking damage

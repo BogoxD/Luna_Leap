@@ -14,11 +14,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float maxFallSpeed = 10f;
     [SerializeField] private float fallSpeedMultiplier = 5f;
 
-
     private Rigidbody2D rb2d;
     public bool isGrounded;
 
-    public bool isDead = false;
     public bool isMoving = false;
     public bool isJetpacking;
     private Transform respawnPoint;
@@ -57,7 +55,6 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("yVelocity", rb2d.velocity.y); // Vertical velocity for jumping/falling
         animator.SetFloat("Magnitude", Mathf.Abs(rb2d.velocity.x)); // Horizontal movement speed for running/walking
         animator.SetBool("isGrounded", isGrounded); // Grounded check for jump/land animations
-        animator.SetBool("isDead", isDead); // Trigger death animation if necessary
     }
 
 
