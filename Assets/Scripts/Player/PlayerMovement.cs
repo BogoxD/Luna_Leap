@@ -9,9 +9,14 @@ public class PlayerMovement : MonoBehaviour
     public float moveForce = 2;
     public float maxSpeed = 5f;
 
-    [Header("Rotation")]
-    public float playerMaxRotation = 20f;
-    public float rotationMultiplier = 2f;
+    /*    [Header("Rotation")]
+        public float playerMaxRotation = 20f;
+        public float rotationMultiplier = 2f;*/
+
+    //Gravity 
+    [SerializeField] private float baseGravity = 5f;
+    [SerializeField] private float maxFallSpeed = 10f;
+    [SerializeField] private float fallSpeedMultiplier = 5f;
 
 
     private Rigidbody2D rb2d;
@@ -46,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         OnJump();
+        Gravity();
         CheckFall();
 
         //animation stuff below
@@ -77,14 +83,14 @@ public class PlayerMovement : MonoBehaviour
         rb2d.AddForce(horizontal * moveForce * Vector2.right, ForceMode2D.Force);
 
         //rotate player towards horizontal input
-        transform.eulerAngles -= Vector3.forward * horizontal * rotationMultiplier;
+        //transform.eulerAngles -= Vector3.forward * horizontal * rotationMultiplier;
 
         // Flip the sprite based on direction
         FlipSprite(horizontal);
 
         //sets a max speed so the player doesn't accelerate to infinity
         LimitVelocity();
-        ClampRotation();
+        //ClampRotation();
     }
 
     private void FlipSprite(float horizontal) {
@@ -122,7 +128,7 @@ public class PlayerMovement : MonoBehaviour
         rb2d.AddForce(vertical * moveForce * Vector2.up, ForceMode2D.Force);
     }
 
-    private void ClampRotation()
+/*    private void ClampRotation()
     {
         Vector3 playerEulerAngles = transform.localEulerAngles;
 
@@ -130,11 +136,19 @@ public class PlayerMovement : MonoBehaviour
         playerEulerAngles.z = Mathf.Clamp(playerEulerAngles.z, -playerMaxRotation, playerMaxRotation);
 
         transform.rotation = Quaternion.Euler(playerEulerAngles);
-    }
+    }*/
 
     private void LimitVelocity()
     {
         rb2d.velocity = new Vector2(Mathf.Clamp(rb2d.velocity.x, -maxSpeed, maxSpeed), rb2d.velocity.y);
+    }
+
+    private void Gravity() {
+        //check if Y is less than 0 e.g falling
+        if (rb2d.velocity.y < 0) {
+            rb2d.gravityScale = baseGravity * fallSpeedMultiplier; //fall faster longer you fall
+            rb2d.velocity = new Vector2(rb2d.velocity.x, Mathf.Max(rb2d.velocity.y, -maxFallSpeed)); //cap at max fall speed set
+        }
     }
 
     private void CheckFall() {
