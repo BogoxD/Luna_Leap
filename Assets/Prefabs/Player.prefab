@@ -261,3 +261,5 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 408461413511136984}
   bulletSpeed: 10
   animator: {fileID: 3450633266630224925}
+  sayHelloClip: {fileID: 0}
+  gunShotClip: {fileID: 8300000, guid: bd7161f1d3e437d4998434c2a51fbe05, type: 3}
