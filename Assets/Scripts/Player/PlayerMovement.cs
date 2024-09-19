@@ -14,7 +14,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float maxFallSpeed = 10f;
     [SerializeField] private float fallSpeedMultiplier = 5f;
 
-
     private Rigidbody2D rb2d;
     public bool isGrounded;
 
