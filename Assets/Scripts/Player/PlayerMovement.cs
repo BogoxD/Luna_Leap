@@ -43,21 +43,22 @@ public class PlayerMovement : MonoBehaviour
         SoundFXManager.Instance.PlaySoundFXClip(startClip, transform, 1f);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        OnJump();
         Gravity();
+        OnJump();
+    }
+    private void FixedUpdate()
+    {
         CheckFall();
         OnMove();
+        
 
         //animation stuff below
         animator.SetFloat("yVelocity", rb2d.velocity.y); // Vertical velocity for jumping/falling
         animator.SetFloat("Magnitude", Mathf.Abs(rb2d.velocity.x)); // Horizontal movement speed for running/walking
         animator.SetBool("isGrounded", isGrounded); // Grounded check for jump/land animations
-    }
-    private void FixedUpdate()
-    {
+
         if (isJetpacking)
         {
             rb2d.gravityScale = 0;
@@ -171,7 +172,6 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Planet"))
         {
             isGrounded = true;
-            rb2d.drag = 0.8f;
         }
         else
             rb2d.drag = 0f;
