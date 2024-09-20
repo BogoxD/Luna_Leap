@@ -13,6 +13,9 @@ public class Asteroid : MonoBehaviour
     [Header("Animations")]
     [SerializeField] AnimationClip asteroidDeath;
 
+    [Header("Audio")]
+    [SerializeField] AudioClip asteroidImpact;
+
     private Animator animator;
     private Rigidbody2D rb2d;
     private Vector2 forceDirection;
@@ -23,7 +26,7 @@ public class Asteroid : MonoBehaviour
     {
         //get components
         rb2d = GetComponent<Rigidbody2D>();
-        //if asteroid has animator get component
+        //if asteroid has animator and audio source get component
         if (TryGetComponent(out Animator anim))
             animator = anim;
 
@@ -33,8 +36,6 @@ public class Asteroid : MonoBehaviour
     {
         if (isFalling)
             Move();
-        //else 
-        //bounce around
     }
     private void Move()
     {
@@ -69,6 +70,8 @@ public class Asteroid : MonoBehaviour
             //set collder to trigger
             if (TryGetComponent(out Collider collider))
                 collider.isTrigger = true;
+
+            SoundFXManager.Instance.PlaySoundFXClip(asteroidImpact, transform, 0.5f);
 
             //destroy game object
             Destroy(gameObject, asteroidDeath.length);
