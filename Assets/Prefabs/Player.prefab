@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 408461413511136984}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 3243361396737788561}
   - component: {fileID: 1262938181757089401}
   - component: {fileID: 8661258611127989380}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -218,7 +218,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 0.25
-  m_LinearDrag: 0
+  m_LinearDrag: 0.8
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -260,5 +260,5 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 408461413511136984}
   bulletSpeed: 10
   animator: {fileID: 3450633266630224925}
-  sayHelloClip: {fileID: 0}
+  sayHelloClip: {fileID: 8300000, guid: d71ae8e5fa3785d40b86c76d241745e9, type: 3}
   gunShotClip: {fileID: 8300000, guid: bd7161f1d3e437d4998434c2a51fbe05, type: 3}
