@@ -20,7 +20,7 @@ public static class SaveManager {
     // Update the level buttons to match the player's progress
     public static void UpdateLevelButtons() {
         int highestLevel = LoadProgress(); // Load the highest completed level
-        int totalLevels = 4; // Update this to the total number of levels you have
+        int totalLevels = 9; // Update this to the total number of levels you have
 
         for (int i = 1; i <= totalLevels; i++) {
             // Find the level button by its name
