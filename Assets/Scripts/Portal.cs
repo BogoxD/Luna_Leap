@@ -20,7 +20,7 @@ public class Portal : MonoBehaviour {
 
         // Check if the player collided with the portal and the portal is active
         if (collectorManager != null && collectorManager.IsPortalActive() && other.CompareTag("Player")) {
-            Debug.Log("Player collided with portal. Loading next level...");
+            Debug.Log("Player collided with portal");
             SaveProgressAndLoadNextLevel();
         }
     }
@@ -45,6 +45,7 @@ public class Portal : MonoBehaviour {
             // Load the next level
             SceneManager.LoadScene(currentSceneIndex + 1);
         } else {
+            // add finish game mechanic at some point
             Debug.Log("Completed it mate");
         }
     }
