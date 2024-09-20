@@ -263,16 +263,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2307396754408238183, guid: 07194e4d87bd9464b9bbd72f8006be07, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1744082723}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07194e4d87bd9464b9bbd72f8006be07, type: 3}
---- !u!1 &153510981 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2307396754408238183, guid: 07194e4d87bd9464b9bbd72f8006be07, type: 3}
-  m_PrefabInstance: {fileID: 153510980}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &540621487
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -582,10 +574,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2307396754408238183, guid: 07194e4d87bd9464b9bbd72f8006be07, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1871703334}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07194e4d87bd9464b9bbd72f8006be07, type: 3}
 --- !u!1001 &908679689
 PrefabInstance:
@@ -716,29 +705,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1099683790 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2307396754408238183, guid: 07194e4d87bd9464b9bbd72f8006be07, type: 3}
-  m_PrefabInstance: {fileID: 2114219820}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1099683791 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1513087414301255077, guid: 07194e4d87bd9464b9bbd72f8006be07, type: 3}
   m_PrefabInstance: {fileID: 2114219820}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1099683792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1099683790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f180a823c7066042b9a32880e30bf72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  worth: 100
 --- !u!1001 &1105065029
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1017,42 +988,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1513087414301255077, guid: 07194e4d87bd9464b9bbd72f8006be07, type: 3}
   m_PrefabInstance: {fileID: 153510980}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1744082723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 153510981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f180a823c7066042b9a32880e30bf72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  worth: 100
---- !u!1 &1871703332 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2307396754408238183, guid: 07194e4d87bd9464b9bbd72f8006be07, type: 3}
-  m_PrefabInstance: {fileID: 887573066}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1871703333 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1513087414301255077, guid: 07194e4d87bd9464b9bbd72f8006be07, type: 3}
   m_PrefabInstance: {fileID: 887573066}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1871703334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1871703332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f180a823c7066042b9a32880e30bf72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  worth: 100
 --- !u!1 &1937794428
 GameObject:
   m_ObjectHideFlags: 0
@@ -1239,7 +1179,7 @@ GameObject:
   - component: {fileID: 2112208651}
   - component: {fileID: 2112208650}
   - component: {fileID: 2112208657}
-  - component: {fileID: 2112208656}
+  - component: {fileID: 2112208659}
   - component: {fileID: 2112208658}
   m_Layer: 0
   m_Name: Ground
@@ -2485,8 +2425,8 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!60 &2112208656
-PolygonCollider2D:
+--- !u!61 &2112208657
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2517,7 +2457,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -23.12, y: 0}
+  m_Offset: {x: -43.50473, y: 1.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2527,19 +2467,11 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -15.33257, y: 3.0151992}
-      - {x: -25.694773, y: 3.0331733}
-      - {x: -25.947884, y: 2.624282}
-      - {x: -25.976501, y: 0.30281305}
-      - {x: -25.610016, y: 0.035000265}
-      - {x: -15.318013, y: 0.07639325}
-      - {x: -15.04657, y: 0.33906928}
-      - {x: -14.968132, y: 2.6673524}
-  m_UseDelaunayMesh: 0
---- !u!60 &2112208657
-PolygonCollider2D:
+  serializedVersion: 2
+  m_Size: {x: 10.990536, y: 3}
+  m_EdgeRadius: 0
+--- !u!61 &2112208658
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2570,7 +2502,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 4.5295205, y: 1.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2580,19 +2512,11 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -15.33257, y: 3.0151992}
-      - {x: -25.694773, y: 3.0331733}
-      - {x: -25.947884, y: 2.624282}
-      - {x: -25.976501, y: 0.30281305}
-      - {x: -25.610016, y: 0.035000265}
-      - {x: -15.318013, y: 0.07639325}
-      - {x: -15.04657, y: 0.33906928}
-      - {x: -14.968132, y: 2.6673524}
-  m_UseDelaunayMesh: 0
---- !u!60 &2112208658
-PolygonCollider2D:
+  serializedVersion: 2
+  m_Size: {x: 10.940963, y: 3}
+  m_EdgeRadius: 0
+--- !u!61 &2112208659
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2623,7 +2547,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 24.95, y: 0}
+  m_Offset: {x: -20.465792, y: 1.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2633,17 +2557,9 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -15.33257, y: 3.0151992}
-      - {x: -25.694773, y: 3.0331733}
-      - {x: -25.947884, y: 2.624282}
-      - {x: -25.976501, y: 0.30281305}
-      - {x: -25.610016, y: 0.035000265}
-      - {x: -15.318013, y: 0.07639325}
-      - {x: -15.04657, y: 0.33906928}
-      - {x: -14.968132, y: 2.6673524}
-  m_UseDelaunayMesh: 0
+  serializedVersion: 2
+  m_Size: {x: 10.896358, y: 3}
+  m_EdgeRadius: 0
 --- !u!1001 &2114219820
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2711,10 +2627,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2307396754408238183, guid: 07194e4d87bd9464b9bbd72f8006be07, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1099683792}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07194e4d87bd9464b9bbd72f8006be07, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
