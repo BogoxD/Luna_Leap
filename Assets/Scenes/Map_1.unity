@@ -133,7 +133,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 530942130736405116, guid: f30037be1735c4346968c820a1cfd8b0, type: 3}
       propertyPath: m_Distance
-      value: 3.9148524
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 530942130736405116, guid: f30037be1735c4346968c820a1cfd8b0, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -1.257
+      objectReference: {fileID: 0}
+    - target: {fileID: 530942130736405116, guid: f30037be1735c4346968c820a1cfd8b0, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.043108955
       objectReference: {fileID: 0}
     - target: {fileID: 576466838774510459, guid: f30037be1735c4346968c820a1cfd8b0, type: 3}
       propertyPath: m_Name
