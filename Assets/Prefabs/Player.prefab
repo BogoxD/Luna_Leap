@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 1
-  moveForce: 1
+  moveForce: 10
   maxSpeed: 1.2
   baseGravity: 0.5
   maxFallSpeed: 10

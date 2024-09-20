@@ -48,8 +48,6 @@ public class PlayerMovement : MonoBehaviour
     {
         OnJump();
         Gravity();
-        CheckFall();
-        OnMove();
 
         //animation stuff below
         animator.SetFloat("yVelocity", rb2d.velocity.y); // Vertical velocity for jumping/falling
@@ -58,6 +56,9 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        CheckFall();
+        OnMove();
+
         if (isJetpacking)
         {
             rb2d.gravityScale = 0;
@@ -171,7 +172,6 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Planet"))
         {
             isGrounded = true;
-            rb2d.drag = 0.8f;
         }
         else
             rb2d.drag = 0f;
