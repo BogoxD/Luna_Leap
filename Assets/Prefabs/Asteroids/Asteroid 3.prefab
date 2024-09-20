@@ -176,6 +176,7 @@ MonoBehaviour:
   ImpactForce: 2
   destroyTime: 5
   asteroidDeath: {fileID: 7400000, guid: c0dfac5a86584a94fb7e3c16244c41c3, type: 2}
+  asteroidImpact: {fileID: 8300000, guid: 38b175785d576ed418599e952928f999, type: 3}
 --- !u!95 &5251507315720487699
 Animator:
   serializedVersion: 5
