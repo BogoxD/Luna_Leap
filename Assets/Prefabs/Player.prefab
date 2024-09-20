@@ -168,7 +168,7 @@ MonoBehaviour:
   pickUpSoundClip: {fileID: 8300000, guid: 6e6d517960cc4c9429b4a028db086e6d, type: 3}
   jumpClip: {fileID: 8300000, guid: b6c1caad01895c348ac895de80c97a06, type: 3}
   startClip: {fileID: 8300000, guid: 44e6240002eb90742af1eb64cf054b56, type: 3}
-  restartClip: {fileID: 8300000, guid: e951d63f947ac8e4a86cf1a006cdf426, type: 3}
+  restartClip: {fileID: 8300000, guid: 88a598604e2866e45af3a4e15e019ab5, type: 3}
   fallingClip: {fileID: 8300000, guid: 65da77a77e29f7e4e8a007ae273f411d, type: 3}
 --- !u!58 &7538034663327768732
 CircleCollider2D:
