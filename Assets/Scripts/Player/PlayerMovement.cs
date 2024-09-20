@@ -56,9 +56,6 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Magnitude", Mathf.Abs(rb2d.velocity.x)); // Horizontal movement speed for running/walking
         animator.SetBool("isGrounded", isGrounded); // Grounded check for jump/land animations
     }
-
-
-
     private void FixedUpdate()
     {
         if (isJetpacking)
@@ -172,7 +169,12 @@ public class PlayerMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Planet"))
+        {
             isGrounded = true;
+            rb2d.drag = 0.8f;
+        }
+        else
+            rb2d.drag = 0f;
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
